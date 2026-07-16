@@ -1,11 +1,22 @@
 @import "tailwindcss";
 
+/* ATELIER — editorial direction: deep espresso ink, warm bone paper,
+   brass accent. Anton mastheads + Cormorant italic interjections. */
 @theme {
-  --color-ink: #0a0a0a;
-  --color-paper: #ffffff;
-  --color-gold: #b08d4f;
+  --color-ink: #15110d;
+  --color-ink-soft: #463d33;
+  --color-ink-mute: #8a7e6f;
+  --color-ink-faint: #b3a692;
+
+  --color-paper: #ece4d7;
+  --color-paper-deep: #e0d6c5;
+  --color-paper-card: #f2ece1;
+
+  --color-gold: #a98a54;
+  --color-gold-bright: #c4a063;
 
   --font-display: var(--font-display-face), "Arial Narrow", sans-serif;
+  --font-serif: var(--font-serif-face), Georgia, serif;
   --font-sans: var(--font-body-face), "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -17,5 +28,114 @@ body {
 
 ::selection {
   background: var(--color-gold);
-  color: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* Display voice — Anton, always uppercase in the Atelier direction */
+.display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: 0.005em;
+}
+
+/* Serif accent — Cormorant italic interjections, captions, quotes */
+.serif-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Kicker — the wide-tracked caps eyebrow */
+.kicker {
+  font-weight: 500;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.34em;
+}
+
+/* Editorial duotone photo treatment */
+.duotone {
+  filter: grayscale(0.7) sepia(0.22) contrast(1.08) brightness(0.92);
+}
+.duotone-hero {
+  filter: grayscale(0.85) sepia(0.25) contrast(1.1) brightness(0.55);
+}
+
+/* Figure hover — slow editorial zoom */
+.figure-zoom img {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.figure-zoom:hover img {
+  transform: scale(1.04);
+}
+
+/* Underline link with reveal */
+.link-reveal {
+  position: relative;
+  padding-bottom: 3px;
+}
+.link-reveal::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-reveal:hover::after {
+  transform: scaleX(1);
+}
+
+/* Scroll reveal — gated so reduced-motion users see everything */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal .rise {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  .reveal.in .rise {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.in .rise:nth-child(2) {
+    transition-delay: 0.07s;
+  }
+  .reveal.in .rise:nth-child(3) {
+    transition-delay: 0.14s;
+  }
+  .reveal.in .rise:nth-child(4) {
+    transition-delay: 0.21s;
+  }
+
+  .reveal .clip {
+    clip-path: inset(0 0 100% 0);
+  }
+  .reveal.in .clip {
+    clip-path: inset(0 0 0 0);
+    transition: clip-path 1s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+}
+
+/* Page transition */
+@media (prefers-reduced-motion: no-preference) {
+  .page-enter {
+    animation: pageEnter 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes pageEnter {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }

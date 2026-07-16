@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Anton, Manrope } from "next/font/google";
+import { Anton, Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
 
 const display = Anton({
   weight: "400",
   variable: "--font-display-face",
+  subsets: ["latin"],
+});
+
+const serif = Cormorant_Garamond({
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-serif-face",
   subsets: ["latin"],
 });
 
@@ -31,7 +38,7 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${display.variable} ${body.variable} h-full antialiased`}
+      className={`${display.variable} ${serif.variable} ${body.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <div className="flex-1">{children}</div>

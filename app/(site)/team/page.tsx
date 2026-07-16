@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import PageMasthead from "@/components/page-masthead";
+import Reveal from "@/components/reveal";
 import { BOOKSY_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -8,98 +10,129 @@ export const metadata: Metadata = {
     "Das Team vom Main Barbershop Saarbrücken – Azat Ektiren und Ridvan Erinc.",
 };
 
+function BarberFeature({
+  photo,
+  name,
+  role,
+  text,
+  quote,
+  cta,
+  n,
+  flip,
+}: {
+  photo: string;
+  name: string;
+  role: string;
+  text: string;
+  quote: string;
+  cta: string;
+  n: number;
+  flip?: boolean;
+}) {
+  return (
+    <section className="py-12 sm:py-16">
+      <div className="mx-auto max-w-7xl px-6 sm:px-10">
+        <Reveal className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+          <figure className={`rise ${flip ? "lg:order-2" : ""}`}>
+            <div className="figure-zoom clip relative aspect-[4/5] overflow-hidden bg-paper-deep">
+              <Image
+                src={photo}
+                alt={`${name} im Main Barbershop`}
+                fill
+                sizes="(max-width: 1024px) 100vw, 600px"
+                className=" object-cover object-top"
+              />
+            </div>
+            <figcaption className="serif-accent mt-3 flex justify-between text-[0.9rem] text-ink-mute">
+              <span>{name}, im Atelier</span>
+              <span className="tabular-nums">Portrait 0{n}</span>
+            </figcaption>
+          </figure>
+          <div className={`rise ${flip ? "lg:order-1" : ""}`}>
+            <div className="flex items-baseline gap-4">
+              <span className="display text-3xl tabular-nums text-gold sm:text-5xl">
+                0{n}
+              </span>
+              <span className="kicker text-gold">{role}</span>
+            </div>
+            <h2 className="display mt-4 text-5xl sm:text-7xl">{name}</h2>
+            <div className="my-7 h-px w-14 bg-gold" />
+            <p className="max-w-[42ch] text-[0.95rem] leading-relaxed text-ink-soft">
+              {text}
+            </p>
+            <p className="serif-accent mt-7 max-w-[26ch] text-2xl leading-snug">
+              „{quote}“
+            </p>
+            <a
+              href={BOOKSY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-9 inline-flex items-center gap-3 border border-ink px-9 py-4 text-[0.7rem] font-semibold uppercase tracking-[0.24em] transition-colors duration-300 hover:bg-ink hover:text-paper"
+            >
+              {cta} <span aria-hidden>→</span>
+            </a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 export default function TeamPage() {
   return (
-    <>
-      {/* Intro */}
-      <section className="bg-ink px-6 py-20 text-paper sm:py-28">
-        <div className="mx-auto max-w-6xl">
-          <p className="text-xs uppercase tracking-[0.35em] text-paper/50">
-            Die Barber
-          </p>
-          <h1 className="mt-6 font-display text-5xl uppercase sm:text-7xl">
-            Team
-          </h1>
-          <div className="mt-8 h-px w-16 bg-gold" />
+    <div className="page-enter">
+      <PageMasthead
+        folio="N° 02"
+        kicker="Die Barber"
+        title="Team"
+        lead="Zwei Hände, ein Anspruch: ein Ergebnis, das im Alltag genauso gut sitzt wie frisch aus dem Shop."
+      />
+
+      <BarberFeature
+        n={1}
+        photo="/azat.jpg"
+        name="Azat Ektiren"
+        role="Barber & Gründer"
+        text="Azat steht für Präzision bis ins Detail. Ob klassischer Herrenhaarschnitt, sauberer Fade oder akkurate Bartkontur – er nimmt sich die Zeit, die ein guter Schnitt braucht. Mit langjähriger Erfahrung und einem geschulten Auge findet er für jeden Kunden den Look, der wirklich passt."
+        quote="Der richtige Look ist der, der wirklich passt."
+        cta="Termin bei Azat"
+      />
+
+      <div className="mx-auto max-w-7xl px-6 sm:px-10">
+        <div className="h-px bg-ink/15" />
+      </div>
+
+      <BarberFeature
+        n={2}
+        flip
+        photo="/barber2.jpg"
+        name="Ridvan Erinc"
+        role="Barber"
+        text="Ridvan verbindet modernes Styling mit klassischem Barbier-Handwerk. Von zeitgemäßen Schnitten bis zur entspannten Bartpflege – bei ihm sitzt jedes Detail. Sein Anspruch: Jeder Kunde verlässt den Stuhl mit einem Ergebnis, das im Alltag genauso gut aussieht wie frisch aus dem Shop."
+        quote="Jedes Detail muss sitzen."
+        cta="Termin bei Ridvan"
+      />
+
+      {/* CTA band */}
+      <section className="mt-12 bg-paper-deep py-20 text-center sm:py-28">
+        <div className="mx-auto max-w-3xl px-6">
+          <Reveal>
+            <p className="rise serif-accent text-3xl leading-tight sm:text-5xl">
+              Ihr Termin beim Barber Ihrer <em>Wahl</em>.
+            </p>
+            <div className="rise mt-10 flex justify-center">
+              <a
+                href={BOOKSY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 border border-gold bg-gold px-9 py-4 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-paper transition-colors duration-300 hover:border-ink hover:bg-ink"
+              >
+                Jetzt Termin buchen <span aria-hidden>→</span>
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
-
-      {/* Azat — photo left, text right */}
-      <section className="px-6 py-20 sm:py-28">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
-          <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden">
-            <Image
-              src="/azat.jpg"
-              alt="Azat Ektiren bei der Arbeit im Main Barbershop"
-              fill
-              sizes="(max-width: 1024px) 100vw, 448px"
-              className="object-cover  object-top"
-            />
-          </div>
-          <div>
-            <p className="text-xs uppercase tracking-[0.35em] text-ink/40">
-              Barber
-            </p>
-            <h2 className="mt-4 font-display text-4xl uppercase sm:text-5xl">
-              Azat Ektiren
-            </h2>
-            <div className="mt-6 h-px w-12 bg-gold" />
-            <p className="mt-6 max-w-md leading-relaxed text-ink/70">
-              Azat steht für Präzision bis ins Detail. Ob klassischer
-              Herrenhaarschnitt, sauberer Fade oder akkurate Bartkontur – er
-              nimmt sich die Zeit, die ein guter Schnitt braucht. Mit
-              langjähriger Erfahrung und einem geschulten Auge findet er für
-              jeden Kunden den Look, der wirklich passt.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Ridvan — text left, monogram panel right */}
-      <section className="bg-ink px-6 py-20 text-paper sm:py-28">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
-          <div className="order-2 lg:order-1">
-            <p className="text-xs uppercase tracking-[0.35em] text-paper/50">
-              Barber
-            </p>
-            <h2 className="mt-4 font-display text-4xl uppercase sm:text-5xl">
-              Ridvan Erinc
-            </h2>
-            <div className="mt-6 h-px w-12 bg-gold" />
-            <p className="mt-6 max-w-md leading-relaxed text-paper/70">
-              Ridvan verbindet modernes Styling mit klassischem
-              Barbier-Handwerk. Von zeitgemäßen Schnitten bis zur entspannten
-              Bartpflege – bei ihm sitzt jedes Detail. Sein Anspruch: Jeder
-              Kunde verlässt den Stuhl mit einem Ergebnis, das im Alltag genauso
-              gut aussieht wie frisch aus dem Shop.
-            </p>
-          </div>
-          <div className="order-1 relative mx-auto aspect-square w-full max-w-md overflow-hidden lg:order-2 lg:justify-self-end">
-            <Image
-              src="/barber2.jpg"
-              alt="Ridvan Erinc im Main Barbershop"
-              fill
-              sizes="(max-width: 1024px) 100vw, 448px"
-              className="object-cover object-top"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="px-6 py-20 text-center sm:py-24">
-        <p className="font-display text-3xl uppercase sm:text-4xl">
-          Ihr Termin beim Barber Ihrer Wahl.
-        </p>
-        <a
-          href={BOOKSY_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-10 inline-block border border-ink px-10 py-4 text-sm uppercase tracking-[0.25em] transition-colors hover:border-gold hover:bg-gold"
-        >
-          Jetzt Termin buchen
-        </a>
-      </section>
-    </>
+    </div>
   );
 }
