@@ -3,6 +3,11 @@ export const SITE_NAME = "Main Barbershop";
 export const BOOKSY_URL =
   "https://booksy.com/de-de/1646_main-barbershop_barbershop_73469_saarbruecken";
 
+/* Kurzlink, auf den auch der Buchungs-QR-Code zeigt (public/booksy-qr.svg). */
+export const BOOKSY_SHORT_URL = "https://mainbarbershop82.booksy.com/a";
+
+export const INSTAGRAM_URL = "https://www.instagram.com/mainbarbershop.de/";
+
 export const ADDRESS = {
   street: "Bahnhofstraße 40",
   city: "66111 Saarbrücken",

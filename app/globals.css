@@ -67,7 +67,7 @@ body {
 
 /* Editorial duotone photo treatment */
 .duotone {
-  filter: grayscale(0.7) sepia(0.22) contrast(1.08) brightness(0.92);
+  filter: grayscale(0.3) sepia(0.22) contrast(1.08) brightness(0.92);
 }
 .duotone-hero {
   filter: grayscale(0.85) sepia(0.25) contrast(1.1) brightness(0.55);

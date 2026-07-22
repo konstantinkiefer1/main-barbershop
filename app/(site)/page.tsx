@@ -10,12 +10,12 @@ export default function Home() {
       {/* Cover — full-bleed duotone storefront under a protection gradient */}
       <section className="relative flex min-h-[min(86vh,760px)] flex-col justify-end overflow-hidden bg-ink text-paper">
         <Image
-          src="/ladenfront-2.jpeg"
+          src="/barbershop3.jpg"
           alt=""
           fill
           preload
           sizes="100vw"
-          className="duotone-hero object-cover"
+          className="duotone-hero object-cover !object-[50%_50%] lg:!object-[50%_30%] "
         />
         <div
           className="absolute inset-0"

@@ -1,11 +1,61 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ADDRESS, HOURS, NAV_LINKS, PHONE, SITE_NAME } from "@/lib/site";
+import {
+  ADDRESS,
+  BOOKSY_SHORT_URL,
+  HOURS,
+  INSTAGRAM_URL,
+  NAV_LINKS,
+  PHONE,
+  SITE_NAME,
+} from "@/lib/site";
+
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden className={className}>
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" />
+    </svg>
+  );
+}
+
+function CalendarIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden className={className}>
+      <rect
+        x="3"
+        y="5"
+        width="18"
+        height="16"
+        rx="3"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <path
+        d="M3 10h18M8 3v4M16 3v4M9.5 15.5l1.8 1.8 3.4-3.6"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 export default function Footer() {
   return (
     <footer className="bg-ink pt-16 text-paper sm:pt-24">
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
-        <div className="grid gap-12 pb-16 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid gap-12 pb-16 md:grid-cols-[1.3fr_1fr_1fr] lg:grid-cols-[1.3fr_1fr_1fr_auto]">
           <div>
             <p className="display text-2xl leading-none">
               Main
@@ -28,6 +78,31 @@ export default function Footer() {
             >
               {PHONE.display}
             </a>
+
+            <ul className="mt-7 flex flex-wrap gap-3">
+              <li>
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2.5 rounded-full border border-paper/20 px-4 py-2 text-[0.7rem] uppercase tracking-[0.16em] text-paper/60 transition-colors hover:border-gold hover:text-gold-bright"
+                >
+                  <InstagramIcon className="h-4 w-4" />
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href={BOOKSY_SHORT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2.5 rounded-full border border-paper/20 px-4 py-2 text-[0.7rem] uppercase tracking-[0.16em] text-paper/60 transition-colors hover:border-gold hover:text-gold-bright"
+                >
+                  <CalendarIcon className="h-4 w-4" />
+                  Booksy
+                </a>
+              </li>
+            </ul>
           </div>
 
           <div>
@@ -72,6 +147,28 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
+          </div>
+
+          <div className="hidden lg:block">
+            <p className="kicker text-gold-bright">Termin scannen</p>
+            <a
+              href={BOOKSY_SHORT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-block rounded-sm bg-paper-card p-3 transition-transform hover:-translate-y-0.5"
+            >
+              <Image
+                src="/booksy-qr.svg"
+                alt="QR-Code zur Online-Terminbuchung bei Main Barbershop"
+                width={132}
+                height={132}
+                unoptimized
+                className="h-[132px] w-[132px]"
+              />
+            </a>
+            <p className="mt-4 max-w-[9.5rem] text-[0.7rem] leading-relaxed text-paper/40">
+              Kamera öffnen, scannen, direkt bei Booksy buchen.
+            </p>
           </div>
         </div>
 
