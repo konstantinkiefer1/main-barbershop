@@ -20,8 +20,8 @@ export default function SiteHeader() {
           : "border-ink/15 bg-paper text-ink"
       }`}
     >
-      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6 sm:px-10">
-        <Link href="/" className="flex items-center gap-3">
+      <div className="mx-auto flex h-[64px] max-w-7xl items-center justify-between px-4 sm:h-[72px] sm:px-10">
+        <Link href="/" className="flex items-center gap-2.5 sm:gap-3">
           <Image
             src={overDark ? "/logo-mark.png" : "/logo-mark-ink.png"}
             alt=""
@@ -31,18 +31,18 @@ export default function SiteHeader() {
           />
           <span className="display text-lg leading-none tracking-[0.04em]">
             Main
-            <span className="serif-accent ml-1 text-[0.95em] normal-case text-gold">
+            <span className="serif-accent ml-1 hidden text-[0.95em] normal-case text-gold sm:inline">
               barbershop
             </span>
           </span>
         </Link>
 
-        <nav className="flex items-center gap-5 sm:gap-9">
+        <nav className="flex items-center gap-3.5 sm:gap-9">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`text-[0.7rem] font-medium uppercase tracking-[0.2em] transition-colors duration-300 hover:text-gold ${
+              className={`text-[0.6rem] font-medium uppercase tracking-[0.1em] transition-colors duration-300 hover:text-gold sm:text-[0.7rem] sm:tracking-[0.2em] ${
                 pathname === link.href ? "text-gold" : ""
               }`}
             >
