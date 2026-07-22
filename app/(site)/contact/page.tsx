@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageMasthead from "@/components/page-masthead";
 import Reveal from "@/components/reveal";
-import { ADDRESS, BOOKSY_URL, HOURS, PHONE } from "@/lib/site";
+import BookingButton from "@/components/booking-button";
+import { ADDRESS, HOURS, PHONE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Kontakt",
@@ -17,7 +18,7 @@ export default function ContactPage() {
   return (
     <div className="page-enter">
       <PageMasthead
-        folio="N° 03"
+        folio="N° 04"
         kicker="So finden Sie uns"
         title="Kontakt"
         lead="Mitten in Saarbrücken – nur wenige Gehminuten vom Hauptbahnhof."
@@ -75,14 +76,9 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <a
-                href={BOOKSY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-10 inline-flex items-center gap-3 border border-gold bg-gold px-9 py-4 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-paper transition-colors duration-300 hover:border-ink hover:bg-ink"
-              >
+              <BookingButton className="mt-10 inline-flex items-center gap-3 border border-gold bg-gold px-9 py-4 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-paper transition-colors duration-300 hover:border-ink hover:bg-ink">
                 Jetzt Termin buchen <span aria-hidden>→</span>
-              </a>
+              </BookingButton>
               <p className="serif-accent mt-4 text-[0.85rem] text-ink-mute">
                 Bezahlung vor Ort – bar oder mit Karte.
               </p>
@@ -93,11 +89,11 @@ export default function ContactPage() {
             <figure className="rise">
               <div className="figure-zoom relative aspect-[4/5] overflow-hidden bg-paper-deep">
                 <Image
-                  src="/ladenfront.jpeg"
+                  src="/barbershop.jpg"
                   alt="Ladenfront des Main Barbershop in der Bahnhofstraße"
                   fill
                   sizes="(max-width: 1024px) 100vw, 600px"
-                  className="duotone object-cover object-top"
+                  className=" object-cover object-top"
                 />
               </div>
               <figcaption className="serif-accent mt-3 flex justify-between text-[0.9rem] text-ink-mute">

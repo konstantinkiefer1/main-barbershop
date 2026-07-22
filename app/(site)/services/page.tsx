@@ -3,7 +3,8 @@ import Image from "next/image";
 import Faq from "@/components/faq";
 import PageMasthead from "@/components/page-masthead";
 import Reveal from "@/components/reveal";
-import { BOOKSY_URL, SERVICES } from "@/lib/site";
+import BookingButton from "@/components/booking-button";
+import { SERVICES } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Services & Preise",
@@ -99,26 +100,16 @@ export default function ServicesPage() {
                   <span className="tabular-nums">Fig. 02</span>
                 </figcaption>
               </figure>
-              <a
-                href={BOOKSY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-7 flex items-center justify-center gap-3 border border-ink px-9 py-4 text-[0.7rem] font-semibold uppercase tracking-[0.24em] transition-colors duration-300 hover:bg-ink hover:text-paper"
-              >
+              <BookingButton className="mt-7 flex w-full items-center justify-center gap-3 border border-ink px-9 py-4 text-[0.7rem] font-semibold uppercase tracking-[0.24em] transition-colors duration-300 hover:bg-ink hover:text-paper">
                 Termin buchen <span aria-hidden>→</span>
-              </a>
+              </BookingButton>
             </div>
           </Reveal>
 
           {/* Mobile CTA — sticky rail above is desktop-only */}
-          <a
-            href={BOOKSY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 border border-ink px-9 py-4 text-[0.7rem] font-semibold uppercase tracking-[0.24em] transition-colors duration-300 hover:bg-ink hover:text-paper lg:hidden"
-          >
+          <BookingButton className="flex items-center justify-center gap-3 border border-ink px-9 py-4 text-[0.7rem] font-semibold uppercase tracking-[0.24em] transition-colors duration-300 hover:bg-ink hover:text-paper lg:hidden">
             Jetzt Termin buchen <span aria-hidden>→</span>
-          </a>
+          </BookingButton>
         </div>
       </section>
 
@@ -130,14 +121,9 @@ export default function ServicesPage() {
             <span className="rise display text-3xl sm:text-5xl">Fragen</span>
           </Reveal>
           <Faq items={FAQ_ITEMS} />
-          <a
-            href={BOOKSY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-14 inline-flex items-center gap-3 border border-gold bg-gold px-9 py-4 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-ink transition-colors duration-300 hover:border-paper hover:bg-paper"
-          >
+          <BookingButton className="mt-14 inline-flex items-center gap-3 border border-gold bg-gold px-9 py-4 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-ink transition-colors duration-300 hover:border-paper hover:bg-paper">
             Jetzt Termin buchen <span aria-hidden>→</span>
-          </a>
+          </BookingButton>
         </div>
       </section>
     </div>

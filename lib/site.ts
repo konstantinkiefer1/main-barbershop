@@ -21,12 +21,12 @@ export const HOURS = [
 export const SERVICES = [
   {
     name: "Herrenhaarschnitt",
-    price: "20 €",
+    price: "23 €",
     description: "Klassischer oder moderner Schnitt – präzise auf Sie abgestimmt.",
   },
   {
     name: "Bart",
-    price: "15 €",
+    price: "17 €" ,
     description: "Konturieren, Trimmen und Pflege für einen gepflegten Bart.",
   },
   {
@@ -36,23 +36,19 @@ export const SERVICES = [
   },
   {
     name: "Komplettpaket",
-    price: "40 €",
+    price: "45 €",
     description: "Haarschnitt, Bart, Augenbrauen und Wachs – das volle Programm.",
   },
   {
     name: "Kinderhaarschnitt",
-    price: "17 €",
+    price: "18 €",
     description: "Geduldig und sorgfältig – für unsere jüngsten Kunden.",
-  },
-  {
-    name: "Maschinenschnitt",
-    price: "17 €",
-    description: "Gleichmäßiger Schnitt mit der Maschine – schnell und sauber.",
   },
 ];
 
 export const NAV_LINKS = [
   { href: "/services", label: "Services" },
   { href: "/team", label: "Team" },
+  { href: "/galerie", label: "Galerie" },
   { href: "/contact", label: "Kontakt" },
 ];

@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BOOKSY_URL, NAV_LINKS } from "@/lib/site";
+import BookingButton from "@/components/booking-button";
+import { NAV_LINKS } from "@/lib/site";
 
 /* Slim editorial masthead. Carries a solid ink ground on the home cover
    (so it reads seamless with the dark hero) and bone paper elsewhere. */
@@ -48,10 +49,7 @@ export default function SiteHeader() {
               {link.label}
             </Link>
           ))}
-          <a
-            href={BOOKSY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <BookingButton
             className={`hidden border px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.24em] transition-colors duration-300 md:inline-block ${
               overDark
                 ? "border-paper/20 hover:border-gold hover:bg-gold hover:text-ink"
@@ -59,7 +57,7 @@ export default function SiteHeader() {
             }`}
           >
             Termin buchen
-          </a>
+          </BookingButton>
         </nav>
       </div>
     </header>

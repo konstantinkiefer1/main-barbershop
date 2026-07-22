@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageMasthead from "@/components/page-masthead";
 import Reveal from "@/components/reveal";
-import { BOOKSY_URL } from "@/lib/site";
+import BookingButton from "@/components/booking-button";
 
 export const metadata: Metadata = {
   title: "Team",
@@ -63,14 +63,9 @@ function BarberFeature({
             <p className="serif-accent mt-7 max-w-[26ch] text-2xl leading-snug">
               „{quote}“
             </p>
-            <a
-              href={BOOKSY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-9 inline-flex items-center gap-3 border border-ink px-9 py-4 text-[0.7rem] font-semibold uppercase tracking-[0.24em] transition-colors duration-300 hover:bg-ink hover:text-paper"
-            >
+            <BookingButton className="mt-9 inline-flex items-center gap-3 border border-ink px-9 py-4 text-[0.7rem] font-semibold uppercase tracking-[0.24em] transition-colors duration-300 hover:bg-ink hover:text-paper">
               {cta} <span aria-hidden>→</span>
-            </a>
+            </BookingButton>
           </div>
         </Reveal>
       </div>
@@ -91,7 +86,7 @@ export default function TeamPage() {
       <BarberFeature
         n={1}
         photo="/azat.jpg"
-        name="Azat Ektiren"
+        name="Azat"
         role="Barber & Gründer"
         text="Azat steht für Präzision bis ins Detail. Ob klassischer Herrenhaarschnitt, sauberer Fade oder akkurate Bartkontur – er nimmt sich die Zeit, die ein guter Schnitt braucht. Mit langjähriger Erfahrung und einem geschulten Auge findet er für jeden Kunden den Look, der wirklich passt."
         quote="Der richtige Look ist der, der wirklich passt."
@@ -105,8 +100,8 @@ export default function TeamPage() {
       <BarberFeature
         n={2}
         flip
-        photo="/barber2.jpg"
-        name="Ridvan Erinc"
+        photo="/barbershop.jpg"
+        name="Ridvan"
         role="Barber"
         text="Ridvan verbindet modernes Styling mit klassischem Barbier-Handwerk. Von zeitgemäßen Schnitten bis zur entspannten Bartpflege – bei ihm sitzt jedes Detail. Sein Anspruch: Jeder Kunde verlässt den Stuhl mit einem Ergebnis, das im Alltag genauso gut aussieht wie frisch aus dem Shop."
         quote="Jedes Detail muss sitzen."
@@ -121,14 +116,9 @@ export default function TeamPage() {
               Ihr Termin beim Barber Ihrer <em>Wahl</em>.
             </p>
             <div className="rise mt-10 flex justify-center">
-              <a
-                href={BOOKSY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 border border-gold bg-gold px-9 py-4 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-paper transition-colors duration-300 hover:border-ink hover:bg-ink"
-              >
+              <BookingButton className="inline-flex items-center gap-3 border border-gold bg-gold px-9 py-4 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-paper transition-colors duration-300 hover:border-ink hover:bg-ink">
                 Jetzt Termin buchen <span aria-hidden>→</span>
-              </a>
+              </BookingButton>
             </div>
           </Reveal>
         </div>

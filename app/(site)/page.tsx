@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import BookingButton from "@/components/booking-button";
 import Reveal from "@/components/reveal";
-import { BOOKSY_URL, NAV_LINKS } from "@/lib/site";
+import { NAV_LINKS } from "@/lib/site";
 
 export default function Home() {
   return (
@@ -36,14 +37,9 @@ export default function Home() {
                 Präzision, Stil und Handwerk – mitten in Saarbrücken.
               </p>
               <div className="flex flex-wrap items-center gap-4">
-                <a
-                  href={BOOKSY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 border border-gold bg-gold px-9 py-4 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-ink transition-colors duration-300 hover:border-paper hover:bg-paper"
-                >
+                <BookingButton className="inline-flex items-center gap-3 border border-gold bg-gold px-9 py-4 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-ink transition-colors duration-300 hover:border-paper hover:bg-paper">
                   Termin buchen <span aria-hidden>→</span>
-                </a>
+                </BookingButton>
                 <Link
                   href="/services"
                   className="link-reveal text-[0.72rem] font-semibold uppercase tracking-[0.2em] transition-colors hover:text-gold-bright"
@@ -62,7 +58,7 @@ export default function Home() {
           <Reveal className="mb-10 flex items-baseline justify-between">
             <span className="rise kicker text-gold-bright">Das Haus</span>
             <span className="rise serif-accent text-sm tabular-nums text-paper/40">
-              N° 01 — 03
+              N° 01 — 0{NAV_LINKS.length}
             </span>
           </Reveal>
           <div className="h-px bg-paper/15" />
